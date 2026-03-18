@@ -200,8 +200,8 @@ async function fetchProjects() {
 
         // Categorization logic (similar to what was in Python)
         const projects = repos.filter(repo => !repo.fork).map(repo => {
-            const desc = (repo.description || "").lower();
-            const name = repo.name.lower();
+            const desc = (repo.description || "").toLowerCase();
+            const name = repo.name.toLowerCase();
             const combined = `${name} ${desc}`;
             let category = 'Software Engineering';
 
