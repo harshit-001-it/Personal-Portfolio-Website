@@ -195,8 +195,44 @@ gsap.utils.toArray('section').forEach(section => {
 async function fetchProjects() {
     const container = document.getElementById('projects-container');
     try {
-        const response = await fetch('/api/projects');
-        const projects = await response.json();
+        const response = await fetch('https://api.github.com/users/harshit-001-it/repos');
+        const repos = await response.json();
+
+        // Categorization logic (similar to what was in Python)
+        const projects = repos.filter(repo => !repo.fork).map(repo => {
+            const desc = (repo.description || "").lower();
+            const name = repo.name.lower();
+            const combined = `${name} ${desc}`;
+            let category = 'Software Engineering';
+
+            if (combined.includes('ml') || combined.includes('machine learning') || combined.includes('nlp') || combined.includes('vision')) {
+                category = 'Machine Learning';
+            } else if (combined.includes('web') || combined.includes('html') || combined.includes('css') || combined.includes('react') || combined.includes('js')) {
+                category = 'Web Development';
+            } else if (combined.includes('python') || combined.includes('script') || combined.includes('automation')) {
+                category = 'Python Development';
+            } else if (combined.includes('java') || combined.includes('android')) {
+                category = 'Java Development';
+            }
+
+            return {
+                name: repo.name,
+                description: repo.description || "No description provided.",
+                url: repo.html_url,
+                stars: repo.stargazers_count,
+                language: repo.language,
+                category: category
+            };
+        });
+
+        // Ensure "Portfolio" or "Website" projects are first
+        projects.sort((a, b) => {
+            const aIsPortfolio = a.name.toLowerCase().includes('portfolio') || a.name.toLowerCase().includes('website');
+            const bIsPortfolio = b.name.toLowerCase().includes('portfolio') || b.name.toLowerCase().includes('website');
+            if (aIsPortfolio && !bIsPortfolio) return -1;
+            if (!aIsPortfolio && bIsPortfolio) return 1;
+            return 0;
+        });
 
         container.innerHTML = '';
 
@@ -230,12 +266,7 @@ async function fetchProjects() {
     }
 }
 
-// Heartbeat system to keep server alive
-function startHeartbeat() {
-    setInterval(() => {
-        fetch('/api/heartbeat', { method: 'POST' }).catch(() => { });
-    }, 5000); // Ping every 5 seconds
-}
+// Note: Heartbeat and Backend API calls removed for static GitHub Pages deployment
 
 // Interactive Learning Hub Data
 const skillData = {
@@ -314,7 +345,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Initialize heartbeat
-startHeartbeat();
+// startHeartbeat(); // Disabled for static site
 
 // Contact Form Handling
 const contactForm = document.getElementById('contact-form');
@@ -359,6 +390,13 @@ if (contactForm) {
         };
 
         try {
+            // Static site notice: Form needs a third-party service like Formspree or a backend
+            formStatus.className = 'form-status active success';
+            formStatus.innerText = 'Message feature is currently offline for this static version. Please reach out via LinkedIn!';
+            contactForm.reset();
+            
+            /* 
+            // Original backend code:
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -373,6 +411,7 @@ if (contactForm) {
             if (result.status === 'success') {
                 contactForm.reset();
             }
+            */
         } catch (error) {
             formStatus.className = 'form-status active error';
             formStatus.innerText = 'Something went wrong. Please try again later.';
