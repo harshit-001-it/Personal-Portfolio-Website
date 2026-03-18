@@ -386,32 +386,23 @@ if (contactForm) {
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
-            message: document.getElementById('message').value
         };
-
         try {
-            // Static site notice: Form needs a third-party service like Formspree or a backend
-            formStatus.className = 'form-status active success';
-            formStatus.innerText = 'Message feature is currently offline for this static version. Please reach out via LinkedIn!';
-            contactForm.reset();
-            
-            /* 
-            // Original backend code:
-            const response = await fetch('/api/contact', {
+            const response = await fetch('https://formspree.io/f/maqpawzw', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
             });
 
-            const result = await response.json();
-
-            formStatus.className = 'form-status active ' + result.status;
-            formStatus.innerText = result.message;
-
-            if (result.status === 'success') {
+            if (response.ok) {
+                formStatus.className = 'form-status active success';
+                formStatus.innerText = 'Message sent successfully! I will get back to you soon.';
                 contactForm.reset();
+            } else {
+                const errorData = await response.json();
+                formStatus.className = 'form-status active error';
+                formStatus.innerText = errorData.error || 'Oops! There was a problem submitting your form.';
             }
-            */
         } catch (error) {
             formStatus.className = 'form-status active error';
             formStatus.innerText = 'Something went wrong. Please try again later.';
