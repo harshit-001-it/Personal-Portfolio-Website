@@ -386,6 +386,7 @@ if (contactForm) {
         const formData = {
             name: document.getElementById('name').value,
             email: document.getElementById('email').value,
+            message: document.getElementById('message').value
         };
         try {
             const response = await fetch('https://formspree.io/f/maqpawzw', {
