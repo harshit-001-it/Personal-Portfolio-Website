@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, FileText } from "lucide-react";
+import { FiChevronDown, FiFileText } from "react-icons/fi";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -63,7 +63,7 @@ export default function Hero() {
             target="_blank"
             className="group relative inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-dark rounded-full font-display font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
           >
-            <FileText className="w-4 h-4" />
+            <FiFileText className="w-4 h-4" />
             View Resume
           </a>
         </motion.div>
@@ -83,7 +83,7 @@ export default function Hero() {
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         >
-          <ChevronDown className="w-5 h-5 text-brand-blue/60" />
+          <FiChevronDown className="w-5 h-5 text-brand-blue/60" />
         </motion.div>
       </motion.div>
 

@@ -1,17 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Award, ShieldAlert, Image as ImageIcon, FileText } from "lucide-react";
+import { FiAward, FiShield, FiImage, FiFileText } from "react-icons/fi";
 
 const certifications = [
-  { title: "IoT First Year", icon: <Award className="text-blue-400" />, type: "Coursework" },
-  { title: "IoT Second Year", icon: <Award className="text-blue-500" />, type: "Coursework" },
-  { title: "IoT Third Year", icon: <Award className="text-blue-600" />, type: "Coursework" },
-  { title: "ML Workshop", icon: <ImageIcon className="text-purple-400" />, type: "Workshop" },
-  { title: "Internship Completion", icon: <FileText className="text-green-400" />, type: "Internship" },
-  { title: "Excellence in Machine Learning", icon: <Award className="text-yellow-400" />, type: "Specialization" },
-  { title: "Freedom With AI", icon: <Award className="text-orange-400" />, type: "Certificate" },
-  { title: "Startup & Legal", icon: <ShieldAlert className="text-red-400" />, type: "Legal/Biz" },
+  { title: "IoT First Year", icon: <FiAward className="text-blue-400" />, type: "Coursework" },
+  { title: "IoT Second Year", icon: <FiAward className="text-blue-500" />, type: "Coursework" },
+  { title: "IoT Third Year", icon: <FiAward className="text-blue-600" />, type: "Coursework" },
+  { title: "ML Workshop", icon: <FiImage className="text-purple-400" />, type: "Workshop" },
+  { title: "Internship Completion", icon: <FiFileText className="text-green-400" />, type: "Internship" },
+  { title: "Excellence in Machine Learning", icon: <FiAward className="text-yellow-400" />, type: "Specialization" },
+  { title: "Freedom With AI", icon: <FiAward className="text-orange-400" />, type: "Certificate" },
+  { title: "Startup & Legal", icon: <FiShield className="text-red-400" />, type: "Legal/Biz" },
 ];
 
 export default function Certificates() {

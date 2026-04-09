@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Send, Github, Linkedin, Mail } from "lucide-react";
+import { FiSend, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 export default function Contact() {
   return (
@@ -24,16 +24,16 @@ export default function Contact() {
             <div className="flex flex-col gap-6">
               <a href="mailto:harshitmishra.it@gmail.com" className="group flex items-center gap-4 text-white/60 hover:text-white transition-colors">
                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand-blue group-hover:bg-brand-blue/5 transition-all">
-                  <Mail className="w-5 h-5" />
+                  <FiMail className="w-5 h-5" />
                 </div>
                 <span className="font-display tracking-widest uppercase text-sm">harshitmishra.it@gmail.com</span>
               </a>
               <div className="flex items-center gap-4 mt-4">
                 <a href="https://github.com/harshit-001-it" target="_blank" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-white hover:border-white transition-all">
-                  <Github className="w-5 h-5" />
+                  <FiGithub className="w-5 h-5" />
                 </a>
                 <a href="https://www.linkedin.com/in/harshit-mishra-51275b219/" target="_blank" className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center text-white/60 hover:text-[#0077B5] hover:border-[#0077B5] transition-all">
-                  <Linkedin className="w-5 h-5" />
+                  <FiLinkedin className="w-5 h-5" />
                 </a>
               </div>
             </div>
@@ -76,7 +76,7 @@ export default function Contact() {
                 />
               </div>
               <button className="w-full bg-brand-blue hover:bg-blue-600 text-white font-display font-bold tracking-widest uppercase py-5 rounded-xl transition-all flex items-center justify-center gap-3 active:scale-[0.98]">
-                Send Message <Send className="w-4 h-4" />
+                Send Message <FiSend className="w-4 h-4" />
               </button>
             </form>
           </motion.div>

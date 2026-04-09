@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Linkedin, Mail, Menu, X } from "lucide-react";
+import { FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -56,10 +56,10 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <div className="hidden md:flex items-center gap-4 border-l border-white/10 pl-6 ml-2">
             <a href="https://github.com/harshit-001-it" target="_blank" className="text-white/60 hover:text-white transition-colors">
-              <Github className="w-5 h-5" />
+              <FiGithub className="w-5 h-5" />
             </a>
             <a href="https://www.linkedin.com/in/harshit-mishra-51275b219/" target="_blank" className="text-white/60 hover:text-[#0077B5] transition-colors">
-              <Linkedin className="w-5 h-5" />
+              <FiLinkedin className="w-5 h-5" />
             </a>
           </div>
 
@@ -67,7 +67,7 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-white p-1"
           >
-            {mobileMenuOpen ? <X /> : <Menu />}
+            {mobileMenuOpen ? <FiX /> : <FiMenu />}
           </button>
         </div>
       </div>
@@ -93,10 +93,10 @@ export default function Navbar() {
             ))}
             <div className="flex items-center gap-6 pt-6 border-t border-white/10">
               <a href="https://github.com/harshit-001-it" target="_blank" className="text-white/60">
-                <Github className="w-6 h-6" />
+                <FiGithub className="w-6 h-6" />
               </a>
               <a href="https://www.linkedin.com/in/harshit-mishra-51275b219/" target="_blank" className="text-white/60">
-                <Linkedin className="w-6 h-6" />
+                <FiLinkedin className="w-6 h-6" />
               </a>
             </div>
           </motion.div>

@@ -2,30 +2,30 @@
 
 import { motion } from "framer-motion";
 import { 
-  Code2, 
-  Brain, 
-  Layout, 
-  Coffee, 
-  Users, 
-  Eye, 
-  MessageSquare, 
-  Zap, 
-  Route 
-} from "lucide-react";
+  FiCode, 
+  FiCpu, 
+  FiLayout, 
+  FiCoffee, 
+  FiUsers, 
+  FiEye, 
+  FiMessageSquare, 
+  FiZap, 
+  FiMap 
+} from "react-icons/fi";
 
 const technicalSkills = [
-  { name: "Python", level: 90, icon: <Code2 className="w-5 h-5 text-blue-400" />, desc: "Core Strength | Automation & Web" },
-  { name: "Web Tech", level: 85, icon: <Layout className="w-5 h-5 text-orange-400" />, desc: "HTML, CSS, JS Stack" },
-  { name: "Machine Learning", level: 75, icon: <Brain className="w-5 h-5 text-purple-400" />, desc: "Emerging Expertise | Data Models" },
-  { name: "Java", level: 70, icon: <Coffee className="w-5 h-5 text-red-400" />, desc: "Object Oriented Design" },
+  { name: "Python", level: 90, icon: <FiCode className="w-5 h-5 text-blue-400" />, desc: "Core Strength | Automation & Web" },
+  { name: "Web Tech", level: 85, icon: <FiLayout className="w-5 h-5 text-orange-400" />, desc: "HTML, CSS, JS Stack" },
+  { name: "Machine Learning", level: 75, icon: <FiCpu className="w-5 h-5 text-purple-400" />, desc: "Emerging Expertise | Data Models" },
+  { name: "Java", level: 70, icon: <FiCoffee className="w-5 h-5 text-red-400" />, desc: "Object Oriented Design" },
 ];
 
 const softSkills = [
-  { name: "Communication", icon: <MessageSquare className="w-4 h-4" /> },
-  { name: "Collaboration", icon: <Users className="w-4 h-4" /> },
-  { name: "Observation", icon: <Eye className="w-4 h-4" /> },
-  { name: "Problem Solving", icon: <Zap className="w-4 h-4" /> },
-  { name: "Adaptive Nature", icon: <Route className="w-4 h-4" /> },
+  { name: "Communication", icon: <FiMessageSquare className="w-4 h-4" /> },
+  { name: "Collaboration", icon: <FiUsers className="w-4 h-4" /> },
+  { name: "Observation", icon: <FiEye className="w-4 h-4" /> },
+  { name: "Problem Solving", icon: <FiZap className="w-4 h-4" /> },
+  { name: "Adaptive Nature", icon: <FiMap className="w-4 h-4" /> },
 ];
 
 export default function Skills() {

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Star, GitFork, Folder } from "lucide-react";
+import { FiGithub, FiExternalLink, FiStar, FiGitBranch, FiFolder } from "react-icons/fi";
 
 interface Repository {
   id: number;
@@ -71,14 +71,14 @@ export default function Projects() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <Folder className="w-10 h-10 text-brand-blue/40" />
+                    <FiFolder className="w-10 h-10 text-brand-blue/40" />
                     <div className="flex items-center gap-4">
                       <a href={project.html_url} target="_blank" className="text-white/40 hover:text-white transition-colors">
-                        <Github className="w-5 h-5" />
+                        <FiGithub className="w-5 h-5" />
                       </a>
                       {project.homepage && (
                         <a href={project.homepage} target="_blank" className="text-white/40 hover:text-white transition-colors">
-                          <ExternalLink className="w-5 h-5" />
+                          <FiExternalLink className="w-5 h-5" />
                         </a>
                       )}
                     </div>
@@ -105,10 +105,10 @@ export default function Projects() {
                   
                   <div className="flex items-center gap-4 text-xs font-mono text-white/20 pt-4 border-t border-white/5">
                     <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3" /> {project.stargazers_count}
+                      <FiStar className="w-3 h-3" /> {project.stargazers_count}
                     </div>
                     <div className="flex items-center gap-1">
-                      <GitFork className="w-3 h-3" /> {project.forks_count}
+                      <FiGitBranch className="w-3 h-3" /> {project.forks_count}
                     </div>
                   </div>
                 </div>
@@ -127,7 +127,7 @@ export default function Projects() {
             target="_blank"
             className="inline-flex items-center gap-2 text-brand-blue hover:text-white transition-colors font-display tracking-widest uppercase text-sm"
           >
-            Explore all repositories <Github className="w-4 h-4" />
+            Explore all repositories <FiGithub className="w-4 h-4" />
           </a>
         </motion.div>
       </div>
