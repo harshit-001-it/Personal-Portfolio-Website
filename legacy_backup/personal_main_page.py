@@ -40,7 +40,10 @@ from threading import Timer
 from flask import Flask, render_template, jsonify
 from datetime import datetime, timedelta
 
-app = Flask(__name__)
+app = Flask(__name__, 
+            template_folder=os.path.join(base_dir, 'page'),
+            static_folder=os.path.join(base_dir, 'page'),
+            static_url_path='')
 
 # Heartbeat tracking for auto-shutdown
 last_heartbeat = time.time()
@@ -218,10 +221,10 @@ def open_browser():
     webbrowser.open_new("http://127.0.0.1:5005")
 
 if __name__ == '__main__':
-    # Ensure templates and static directories exist
-    os.makedirs('templates', exist_ok=True)
-    os.makedirs('static/css', exist_ok=True)
-    os.makedirs('static/js', exist_ok=True)
+    # Ensure required directories exist within the project
+    os.makedirs(os.path.join(base_dir, 'page', 'css'), exist_ok=True)
+    os.makedirs(os.path.join(base_dir, 'page', 'js'), exist_ok=True)
+    os.makedirs(os.path.join(base_dir, 'Secure'), exist_ok=True)
     
     # Open browser after a short delay to ensure server is ready
     Timer(1.5, open_browser).start()

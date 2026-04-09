@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, FileText } from "lucide-react";
 
 export default function Hero() {
   const { scrollY } = useScroll();
@@ -51,6 +51,22 @@ export default function Hero() {
           <br />
           Crafting scalable digital solutions and solving complex problems with code.
         </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="mt-10 flex flex-wrap justify-center gap-4"
+        >
+          <a
+            href="/assets/Resume/Harshit-Mishra-Resume.pdf"
+            target="_blank"
+            className="group relative inline-flex items-center gap-2 px-8 py-4 bg-white text-brand-dark rounded-full font-display font-bold text-sm transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+          >
+            <FileText className="w-4 h-4" />
+            View Resume
+          </a>
+        </motion.div>
       </motion.div>
 
       {/* Scroll Indicator */}
