@@ -7,17 +7,24 @@ def install_dependencies():
     """Check and install dependencies from requirements.txt."""
     # Get the directory where the script is located
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    req_file = os.path.join(base_dir, "Secure", "requirements.txt")
+    secure_dir = os.path.join(base_dir, "Secure")
+    req_file = os.path.join(secure_dir, "requirements.txt")
     
-    if os.path.exists(req_file):
-        print(f"Checking dependencies in {req_file}...")
-        try:
-            subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", req_file])
-            print("Dependencies verified and updated.")
-        except Exception as e:
-            print(f"Warning: Could not automatically install dependencies: {e}")
-    else:
-        print(f"Warning: requirements.txt not found at {req_file}. Skipping auto-install.")
+    # Ensure Secure directory exists
+    os.makedirs(secure_dir, exist_ok=True)
+    
+    # Create default requirements.txt if it doesn't exist
+    if not os.path.exists(req_file):
+        print(f"Initializing default requirements.txt at {req_file}...")
+        with open(req_file, "w") as f:
+            f.write("python-dotenv\nflask\nrequests\n")
+    
+    print(f"Checking dependencies in {req_file}...")
+    try:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "-r", req_file])
+        print("Dependencies verified and updated.")
+    except Exception as e:
+        print(f"Warning: Could not automatically install dependencies: {e}")
 
 # Run installation check BEFORE any other imports
 install_dependencies()
@@ -224,7 +231,6 @@ if __name__ == '__main__':
     # Ensure required directories exist within the project
     os.makedirs(os.path.join(base_dir, 'page', 'css'), exist_ok=True)
     os.makedirs(os.path.join(base_dir, 'page', 'js'), exist_ok=True)
-    os.makedirs(os.path.join(base_dir, 'Secure'), exist_ok=True)
     
     # Open browser after a short delay to ensure server is ready
     Timer(1.5, open_browser).start()
