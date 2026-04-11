@@ -48,8 +48,8 @@ from flask import Flask, render_template, jsonify
 from datetime import datetime, timedelta
 
 app = Flask(__name__, 
-            template_folder=os.path.join(base_dir, 'page'),
-            static_folder=os.path.join(base_dir, 'page'),
+            template_folder=os.path.join(base_dir, 'legacy_page'),
+            static_folder=os.path.join(base_dir, 'legacy_page'),
             static_url_path='')
 
 # Heartbeat tracking for auto-shutdown
@@ -229,8 +229,8 @@ def open_browser():
 
 if __name__ == '__main__':
     # Ensure required directories exist within the project
-    os.makedirs(os.path.join(base_dir, 'page', 'css'), exist_ok=True)
-    os.makedirs(os.path.join(base_dir, 'page', 'js'), exist_ok=True)
+    os.makedirs(os.path.join(base_dir, 'legacy_page', 'css'), exist_ok=True)
+    os.makedirs(os.path.join(base_dir, 'legacy_page', 'js'), exist_ok=True)
     
     # Open browser after a short delay to ensure server is ready
     Timer(1.5, open_browser).start()
