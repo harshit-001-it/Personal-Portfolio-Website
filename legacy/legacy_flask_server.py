@@ -54,7 +54,7 @@ app = Flask(__name__,
 
 # Heartbeat tracking for auto-shutdown
 last_heartbeat = time.time()
-SHUTDOWN_THRESHOLD = 10  # Seconds
+SHUTDOWN_THRESHOLD = 3600  # Seconds (1 hour)
 
 def monitor_heartbeat():
     """Background thread to shut down the server if the browser is closed."""
