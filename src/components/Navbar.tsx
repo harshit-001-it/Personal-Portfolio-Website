@@ -33,7 +33,7 @@ export default function Navbar() {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="/" className="group flex items-center gap-1">
+        <a href="./" className="group flex items-center gap-1">
           <span className="text-2xl font-display font-bold text-white tracking-tighter">
             HM<span className="text-brand-blue group-hover:animate-pulse">.</span>
           </span>

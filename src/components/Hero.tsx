@@ -20,7 +20,7 @@ export default function Hero() {
   };
 
   // Animation Variants
-  const containerVariants = {
+  const containerVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -31,7 +31,7 @@ export default function Hero() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants: import("framer-motion").Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
