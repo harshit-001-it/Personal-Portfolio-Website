@@ -104,7 +104,7 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-6"
         >
           <a
-            href="/Personal-Portfolio-Website/assets/Resume/Harshit-Mishra-Resume.pdf"
+            href="/Personal-Portfolio-Website/assets/Resume/Harshit%20Mishra%20Resume.pdf"
             target="_blank"
             className="group relative inline-flex items-center gap-3 px-10 py-5 bg-white text-brand-dark rounded-full font-display font-bold text-sm transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] active:scale-95 overflow-hidden"
           >
