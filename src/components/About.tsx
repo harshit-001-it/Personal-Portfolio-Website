@@ -52,7 +52,7 @@ export default function About() {
             { label: "Location", value: "Greater Noida, IN" },
             { label: "Education", value: "B.Tech IT" },
             { label: "Status", value: "Available for Hire" },
-            { label: "Focus", value: "Full Stack & ML" },
+            { label: "Focus", value: "Machine Learning & AI" },
           ].map((stat, i) => (
             <motion.div
               key={stat.label}

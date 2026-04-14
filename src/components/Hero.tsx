@@ -94,9 +94,9 @@ export default function Hero() {
           variants={itemVariants}
           className="max-w-2xl mx-auto text-xl md:text-2xl text-white/40 font-sans font-light leading-relaxed mb-12"
         >
-          Full Stack Developer <span className="text-white/10 mx-3">●</span> AI Enthusiast
+          Machine Learning Engineer <span className="text-white/10 mx-3">●</span> AI Enthusiast
           <br className="hidden md:block" />
-          <span className="text-white/60">Crafting digital excellence through minimalist design and robust architecture.</span>
+          <span className="text-white/60">Crafting digital excellence through intelligent algorithms and robust architecture.</span>
         </motion.p>
 
         <motion.div
