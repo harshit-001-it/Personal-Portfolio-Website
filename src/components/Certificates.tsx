@@ -4,13 +4,11 @@ import { motion } from "framer-motion";
 import { FiAward, FiShield, FiImage, FiFileText } from "react-icons/fi";
 
 const certifications = [
-  { title: "IoT First Year", icon: <FiAward className="text-blue-400" />, type: "Coursework" },
-  { title: "IoT Second Year", icon: <FiAward className="text-blue-500" />, type: "Coursework" },
-  { title: "IoT Third Year", icon: <FiAward className="text-blue-600" />, type: "Coursework" },
-  { title: "ML Workshop", icon: <FiImage className="text-purple-400" />, type: "Workshop" },
-  { title: "Internship Completion", icon: <FiFileText className="text-green-400" />, type: "Internship" },
-  { title: "Excellence in Machine Learning", icon: <FiAward className="text-yellow-400" />, type: "Specialization" },
-  { title: "Freedom With AI", icon: <FiAward className="text-orange-400" />, type: "Certificate" },
+  { title: "Machine Learning Workshop", icon: <FiAward className="text-purple-400" />, type: "Nov 2025" },
+  { title: "Freedom With AI Masterclass", icon: <FiAward className="text-orange-400" />, type: "May 2025" },
+  { title: "Excellence in ML Foundations", icon: <FiAward className="text-yellow-400" />, type: "Apr 2025" },
+  { title: "Advanced Internet of Things", icon: <FiAward className="text-blue-400" />, type: "2025" },
+  { title: "Smart Embedded Systems", icon: <FiAward className="text-blue-500" />, type: "2026" },
   { title: "Startup & Legal", icon: <FiShield className="text-red-400" />, type: "Legal/Biz" },
 ];
 

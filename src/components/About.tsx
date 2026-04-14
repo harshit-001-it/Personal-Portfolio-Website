@@ -34,13 +34,10 @@ export default function About() {
               className="space-y-6 text-white/60 font-sans text-lg leading-relaxed"
             >
               <p>
-                I am <span className="text-white font-medium">Harshit Mishra</span>, currently pursuing B.Tech in Information Technology from IIMT College. I am passionate about software development, problem-solving, and building scalable digital solutions.
+                I am <span className="text-white font-medium">Harshit Mishra</span>, a B.Tech IT student from IIMT College, passionate about building intelligent systems, modern web applications, and solving real-world problems using AI and software development.
               </p>
               <p>
-                 I enjoy working on web development, system design, and exploring emerging technologies. I am a strategic problem solver with strong analytical and observational skills. My philosophy is simple: I remain deeply passionate and committed to my work until the project is flawlessly executed.
-              </p>
-              <p>
-                Beyond writing code, I bridge the gap between data and dynamic user experiences, blending Machine Learning with robust Web Development to build impactful technology.
+                 I enjoy working on system design, data modeling, and exploring emerging technologies. I am a strategic problem solver with strong analytical and observational skills. My philosophy is simple: I remain deeply passionate and committed to my work until the project is flawlessly executed.
               </p>
             </motion.div>
           </div>

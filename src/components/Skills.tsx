@@ -14,10 +14,10 @@ import {
 } from "react-icons/fi";
 
 const technicalSkills = [
-  { name: "Python", level: 90, icon: <FiCode className="w-5 h-5 text-blue-400" />, desc: "Core Strength | Automation & Web" },
-  { name: "Web Tech", level: 85, icon: <FiLayout className="w-5 h-5 text-orange-400" />, desc: "HTML, CSS, JS Stack" },
-  { name: "Machine Learning", level: 75, icon: <FiCpu className="w-5 h-5 text-purple-400" />, desc: "Emerging Expertise | Data Models" },
-  { name: "Java", level: 70, icon: <FiCoffee className="w-5 h-5 text-red-400" />, desc: "Object Oriented Design" },
+  { name: "Python", level: 95, icon: <FiCode className="w-5 h-5 text-brand-blue" />, desc: "Core Strength | AI & Web" },
+  { name: "Machine Learning", level: 85, icon: <FiCpu className="w-5 h-5 text-purple-400" />, desc: "Scikit-Learn, Pandas, Neural Networks" },
+  { name: "Web Tech", level: 80, icon: <FiLayout className="w-5 h-5 text-orange-400" />, desc: "Next.js, NextJS, JS/TS Stack" },
+  { name: "Generative AI", level: 75, icon: <FiZap className="w-5 h-5 text-yellow-400" />, desc: "Prompt Engineering & RAG" },
 ];
 
 const softSkills = [
