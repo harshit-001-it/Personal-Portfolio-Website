@@ -5,6 +5,7 @@ import { Award, FileText } from "lucide-react";
 
 const certificates = [
   { name: "Crash Course on Python", provider: "Google/Coursera", file: "Crash Course on Python.pdf" },
+  { name: "Google Data Analytics", provider: "Google/Coursera", file: "Google Data Analytics.pdf" },
   { name: "Extract, Transform & Load Data", provider: "Microsoft/Power BI", file: "Extract, Transform and Load Data in Power BI.pdf" },
   { name: "IoT Specialist (Module 1-3)", provider: "Cisco/Industry", file: "IOT 1st Module.pdf" },
   { name: "Machine Learning Workshop", provider: "IIT/Industry", file: "ML Workshop.jpeg" },
