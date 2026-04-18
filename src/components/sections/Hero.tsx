@@ -1,59 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Mail } from "lucide-react";
+import { Download } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center px-6 md:px-24">
-      <motion.div
-        initial={{ opacity: 0, x: -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="max-w-4xl"
-      >
-        <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-          Turning Vision Into <br />
-          <span className="text-zinc-500">Intelligent Reality.</span>
-        </h2>
-        <p className="text-xl text-zinc-400 mb-10 leading-relaxed max-w-2xl">
-          Based in India, I specialize in Information Technology, Machine Learning, and Software Architecture. 
-          Currently focused on building AI-driven solutions that bridge the gap between data and human impact.
-        </p>
+    <section className="min-h-screen flex flex-col justify-center px-6 md:px-24 lg:px-32 relative overflow-hidden">
+      <div className="absolute inset-0 bg-transparent z-0" />
+      
+      <div className="max-w-6xl w-full mx-auto z-10 flex flex-col md:flex-row justify-center items-center gap-24 md:gap-40 text-center md:text-left">
+        {/* Left Side: Identity */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="flex-1"
+        >
+          <h1 className="text-sm md:text-base font-bold text-accent tracking-[0.4em] mb-4 uppercase">
+            IT Engineer & ML Specialist
+          </h1>
+          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 tracking-tighter leading-none">
+            Harshit <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 text-glow">
+              Mishra.
+            </span>
+          </h2>
+          <p className="text-lg md:text-2xl text-zinc-400 leading-relaxed max-w-xl mx-auto md:mx-0">
+            Building AI-driven solutions that bridge the gap between complex data and human impact.
+          </p>
+        </motion.div>
 
-        <div className="flex flex-wrap gap-6">
-          <a
+        {/* Right Side: 3D Control Buttons */}
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="flex flex-col gap-6 w-full md:w-auto min-w-[340px]"
+        >
+          <HeroButton
+            href="https://github.com/harshit-001-it"
+            icon={<FaGithub size={24} />}
+            label="GitHub Profile"
+            subLabel="Open Source & Code"
+          />
+          <HeroButton
+            href="https://www.linkedin.com/in/harshit-mishra-51275b219/"
+            icon={<FaLinkedin size={24} />}
+            label="LinkedIn"
+            subLabel="Professional Network"
+          />
+          <HeroButton
             href="/Resume/Harshit Mishra Resume.pdf"
-            download
-            className="flex items-center gap-2 px-8 py-3 bg-white text-black rounded-full font-medium hover:bg-zinc-200 transition-colors"
-          >
-            <Download size={20} />
-            Download Resume
-          </a>
-          
-          <div className="flex items-center gap-4">
-            <SocialLink href="https://github.com/harshit-mishra" icon={<FaGithub size={24} />} />
-            <SocialLink href="https://linkedin.com/in/harshitmishra" icon={<FaLinkedin size={24} />} />
-            <SocialLink href="mailto:contact@harshitmishra.com" icon={<Mail size={24} />} />
-          </div>
-        </div>
-      </motion.div>
+            icon={<Download size={24} />}
+            label="View Resume"
+            subLabel="Full Qualifications"
+            primary
+          />
+        </motion.div>
+      </div>
     </section>
   );
 }
 
-function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
+function HeroButton({ href, icon, label, subLabel, primary = false }: { href: string; icon: React.ReactNode; label: string; subLabel?: string; primary?: boolean }) {
   return (
-    <motion.a
+    <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ scale: 1.1, color: "#fff" }}
-      className="text-zinc-500 transition-colors"
+      className={`group button-3d glow-hover flex items-center gap-6 p-6 rounded-3xl transition-all ${
+        primary ? "bg-white text-black" : "bg-zinc-900/40 text-white backdrop-blur-2xl border border-zinc-800/50"
+      }`}
     >
-      {icon}
-    </motion.a>
+      <div className={`p-4 rounded-2xl flex items-center justify-center transition-colors ${primary ? "bg-zinc-100" : "bg-zinc-800/50 group-hover:bg-zinc-800"}`}>
+        {icon}
+      </div>
+      <div className="flex flex-col">
+        <span className="text-[10px] uppercase tracking-widest font-black opacity-30 mb-1">{subLabel}</span>
+        <span className="text-xl font-bold tracking-tight">{label}</span>
+      </div>
+    </a>
   );
 }

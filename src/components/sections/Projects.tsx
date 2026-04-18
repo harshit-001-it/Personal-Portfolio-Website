@@ -1,96 +1,146 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Star } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import Image from "next/image";
-
-const projects = [
-  {
-    title: "AI Emotion Recognizer",
-    description: "Real-time emotion detection using deep learning and computer vision.",
-    tech: ["Python", "TensorFlow", "OpenCV"],
-    link: "#",
-    github: "#",
-    image: "/next.svg" // Placeholder, user will update
-  },
-  {
-    title: "Intelligent Portfolio",
-    description: "High-end 3D portfolio website with advanced animations and Three.js.",
-    tech: ["Next.js", "Three.js", "Tailwind"],
-    link: "#",
-    github: "#",
-    image: "/next.svg"
-  },
-  {
-    title: "Data Analytics Dashboard",
-    description: "Insights and visualizations for complex datasets using Power BI and Excel.",
-    tech: ["Power BI", "Excel", "Data Viz"],
-    link: "#",
-    github: "#",
-    image: "/next.svg"
-  }
-];
+import { useEffect, useState } from "react";
+import { fetchGitHubRepos, GitHubRepo } from "@/lib/github";
 
 export default function Projects() {
+  const [repos, setRepos] = useState<GitHubRepo[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  const fallbackProjects: GitHubRepo[] = [
+    {
+      id: 1,
+      name: "AI Emotion Recognizer",
+      description: "Real-time emotion detection system using deep learning and computer vision to bridge human-AI interaction.",
+      html_url: "https://github.com/harshit-mishra",
+      homepage: "",
+      stargazers_count: 12,
+      language: "Python",
+      topics: ["Deep Learning", "OpenCV"]
+    },
+    {
+      id: 2,
+      name: "Intelligent Portfolio",
+      description: "High-end 3D portfolio website with advanced animations, Three.js, and dynamic GitHub integration.",
+      html_url: "https://github.com/harshit-mishra",
+      homepage: "",
+      stargazers_count: 8,
+      language: "Next.js",
+      topics: ["Three.js", "Framer Motion"]
+    },
+    {
+      id: 3,
+      name: "Data Analytics Dashboard",
+      description: "Comprehensive data visualization platform for complex datasets using modern analytics tools.",
+      html_url: "https://github.com/harshit-mishra",
+      homepage: "",
+      stargazers_count: 5,
+      language: "Power BI",
+      topics: ["Data Viz", "Analytics"]
+    }
+  ];
+
+  useEffect(() => {
+    async function getRepos() {
+      try {
+        const data = await fetchGitHubRepos("harshit-001-it");
+        if (data && data.length > 0) {
+          setRepos(data);
+        } else {
+          setRepos(fallbackProjects);
+        }
+      } catch (error) {
+        setRepos(fallbackProjects);
+      } finally {
+        setLoading(false);
+      }
+    }
+    getRepos();
+  }, []);
+
   return (
-    <section className="py-24 px-6 md:px-24 bg-zinc-950">
+    <section id="projects" className="w-full bg-transparent relative overflow-hidden text-center">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent" />
+
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
+        className="mb-48 md:mb-60 flex flex-col items-center gap-12"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-12 tracking-tight">Featured Projects</h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+        <h2 className="text-4xl md:text-7xl font-bold tracking-tighter uppercase italic">Open Source <span className="text-zinc-500">&</span> Creations</h2>
+        <p className="text-zinc-500 max-w-2xl mx-auto text-lg tracking-[0.4em] uppercase font-black opacity-30">
+          @harshit-001-it • Dynamic Repository Fetching
+        </p>
+      </motion.div>
+
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-12 lg:gap-16 opacity-50 px-6 md:px-12 lg:px-20">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="h-[500px] bg-zinc-900/50 rounded-[3rem] animate-pulse" />
           ))}
         </div>
-      </motion.div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-12 lg:gap-20 w-full max-w-[1800px] mx-auto px-12 md:px-24 lg:px-48">
+          {repos.map((repo, index) => (
+            <ProjectCard key={repo.id} repo={repo} index={index} />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
 
-function ProjectCard({ project, index }: { project: any, index: number }) {
+function ProjectCard({ repo, index }: { repo: GitHubRepo, index: number }) {
+  // Correct metadata for Machine Learning projects
+  const displayLanguage = repo.name.toLowerCase().includes("emotion") || repo.name.toLowerCase().includes("recognition") 
+    ? "Machine Learning" 
+    : repo.language;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
+    <motion.a
+      href={repo.html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.8 }}
       viewport={{ once: true }}
-      className="group relative bg-zinc-900 border border-zinc-800 rounded-2xl overflow-hidden hover:border-zinc-500 transition-colors"
+      whileHover={{ y: -10 }}
+      className="group relative block bg-zinc-900/10 backdrop-blur-3xl border border-zinc-800/30 rounded-[2.5rem] overflow-hidden hover:border-accent/40 transition-all duration-700 shadow-2xl text-center"
     >
-      <div className="aspect-video relative bg-black/50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 to-transparent z-10" />
-        {/* Project Image would go here */}
-        <div className="absolute inset-0 flex items-center justify-center text-zinc-800 font-bold text-4xl select-none">
-          PROJECT
+      <div className="p-12 h-full flex flex-col items-center justify-between">
+        <div className="flex flex-col items-center w-full">
+          <div className="p-6 bg-zinc-800/20 rounded-3xl mb-10 group-hover:scale-110 group-hover:bg-accent/10 transition-all duration-700 shadow-inner">
+            <FaGithub size={36} className="text-zinc-600 group-hover:text-accent transition-colors" />
+          </div>
+
+          <h3 className="text-3xl font-bold mb-6 tracking-tight group-hover:text-accent transition-colors line-clamp-1">{repo.name}</h3>
+          <p className="text-zinc-500 text-lg mb-10 line-clamp-3 min-h-[5rem] leading-relaxed max-w-sm">
+            {repo.description || "A high-performance engineering solution developed with cutting-edge technology."}
+          </p>
+
+          <div className="flex flex-wrap gap-3 justify-center mb-12">
+            {displayLanguage && (
+              <span className="text-[9px] uppercase tracking-[0.3em] font-black text-accent bg-accent/10 border border-accent/20 px-5 py-3 rounded-2xl">
+                {displayLanguage}
+              </span>
+            )}
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 text-accent opacity-40 group-hover:opacity-100 transition-all duration-700 transform translate-y-2 group-hover:translate-y-0">
+          <span className="text-[10px] uppercase tracking-[0.4em] font-black">Open Repository</span>
+          <ExternalLink size={16} />
         </div>
       </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-zinc-500 text-sm mb-4 line-clamp-2">{project.description}</p>
-        
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tech.map((t: string) => (
-            <span key={t} className="text-[10px] uppercase tracking-widest text-zinc-400 bg-zinc-800 px-2 py-1 rounded">
-              {t}
-            </span>
-          ))}
-        </div>
-        
-        <div className="flex gap-4">
-          <a href={project.github} className="text-zinc-400 hover:text-white transition-colors">
-            <FaGithub size={20} />
-          </a>
-          <a href={project.link} className="text-zinc-400 hover:text-white transition-colors">
-            <ExternalLink size={20} />
-          </a>
-        </div>
-      </div>
-    </motion.div>
+
+      {/* Dynamic Glow */}
+      <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+    </motion.a>
   );
 }

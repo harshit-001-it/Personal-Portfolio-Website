@@ -4,15 +4,8 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Removing Geist fonts due to download failure in this environment
+// We'll use system font stack defined in globals.css
 
 export const metadata: Metadata = {
   title: "Harshit Mishra | IT Engineer & AI Enthusiast",
@@ -26,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white cursor-none`}>
+      <body className="antialiased font-sans bg-black text-white cursor-none">
         <CustomCursor />
         <SmoothScroll>
           {children}

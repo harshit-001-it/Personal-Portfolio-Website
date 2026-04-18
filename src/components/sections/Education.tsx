@@ -20,19 +20,20 @@ const education = [
 
 export default function Education() {
   return (
-    <section className="py-24 px-6 md:px-24">
+    <section className="py-24 px-6 md:px-24 bg-transparent">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
+        className="text-center md:text-left"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tight flex items-center gap-4">
-          <GraduationCap className="text-zinc-500" size={40} />
+        <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tight flex items-center justify-center md:justify-start gap-4">
+          <GraduationCap className="text-accent" size={40} />
           Education
         </h2>
 
-        <div className="space-y-12 max-w-3xl">
+        <div className="space-y-12 max-w-3xl mx-auto md:mx-0">
           {education.map((edu, index) => (
             <motion.div
               key={edu.degree}

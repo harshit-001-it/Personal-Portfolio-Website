@@ -2,64 +2,63 @@
 
 import { motion } from "framer-motion";
 import { Send, MapPin, Mail, Phone } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className="py-24 px-6 md:px-24 bg-zinc-950 border-t border-zinc-900">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-6xl font-bold mb-8 tracking-tighter">Get in Touch</h2>
-          <p className="text-zinc-400 text-lg mb-12 max-w-md">
-            I'm always open to new opportunities, collaborations, or just a friendly chat about AI and tech.
-          </p>
-          
-          <div className="space-y-6">
-            <ContactItem icon={<Mail size={20} />} label="Email" value="harshit.mishra.it@email.com" />
-            <ContactItem icon={<Phone size={20} />} label="Phone" value="+91 XXXXX XXXXX" />
-            <ContactItem icon={<MapPin size={20} />} label="Location" value="Gautam Buddha Nagar, UP, India" />
-          </div>
-        </motion.div>
-
+    <section className="bg-transparent w-full text-center overflow-hidden">
+      <div className="flex justify-center w-full mb-32 md:mb-48">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="bg-zinc-900 border border-zinc-800 p-8 rounded-3xl"
+          className="bg-zinc-900/10 backdrop-blur-3xl border border-zinc-800/30 p-12 md:p-24 rounded-[4rem] w-full max-w-[1800px] flex flex-col items-center"
         >
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <Input label="Name" type="text" placeholder="John Doe" />
-              <Input label="Email" type="email" placeholder="john@example.com" />
+          <div className="mb-48 md:mb-60 flex flex-col items-center gap-12">
+            <h2 className="text-5xl md:text-8xl font-bold mb-4 tracking-tighter uppercase italic">Get in Touch</h2>
+            <p className="text-zinc-500 text-2xl mx-auto max-w-3xl font-medium tracking-tight">
+              Have a project in mind or just want to say hi? <br className="hidden md:block" /> I'm always open to new opportunities.
+            </p>
+          </div>
+
+          <form className="space-y-12 text-left w-full max-w-5xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <Input label="Name" type="text" placeholder="Your Name" />
+              <Input label="Email" type="email" placeholder="email@example.com" />
             </div>
-            <Input label="Subject" type="text" placeholder="Inquiry about ML project" />
-            <div className="flex flex-col gap-2">
-              <label className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Message</label>
+
+            <div className="flex flex-col gap-4">
+              <label className="text-[11px] uppercase tracking-[0.4em] font-black text-zinc-700">Message</label>
               <textarea
-                rows={4}
-                className="bg-zinc-800 border border-zinc-700 rounded-xl p-4 text-white focus:outline-none focus:border-white transition-colors resize-none"
-                placeholder="How can I help you?"
+                rows={7}
+                className="bg-zinc-800/10 border border-zinc-800/50 rounded-3xl p-8 text-white text-lg focus:outline-none focus:border-accent transition-all resize-none shadow-2xl"
+                placeholder="Tell me about your project..."
               />
             </div>
-            <button className="w-full flex items-center justify-center gap-2 py-4 bg-white text-black rounded-xl font-bold hover:bg-zinc-200 transition-colors uppercase tracking-widest text-xs">
-              <Send size={16} />
-              Send Message
+            <button className="button-3d glow-hover w-full flex items-center justify-center gap-4 py-8 bg-white text-black rounded-3xl font-black transition-all uppercase tracking-[0.4em] text-[11px]">
+              <Send size={22} />
+              Dispatch Message
             </button>
           </form>
         </motion.div>
       </div>
 
-      <footer className="mt-32 pt-12 border-t border-zinc-900 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-zinc-600 text-sm">© 2026 Harshit Mishra. All rights reserved.</p>
-        <div className="flex gap-8 text-zinc-500 text-xs uppercase tracking-[0.2em]">
-          <a href="#" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms</a>
-          <a href="#" className="hover:text-white transition-colors">GitHub</a>
+      <footer className="w-full max-w-[1400px] mx-auto pb-12 px-6 md:px-12 mt-[150vh]">
+        <div className="bg-zinc-900/30 backdrop-blur-[40px] border border-zinc-800/30 rounded-3xl p-6 px-16 md:px-48 flex flex-row justify-between items-center gap-10">
+          <div className="flex flex-col items-start">
+            <span className="text-2xl font-black tracking-tighter text-white">HM</span>
+            <span className="text-[8px] uppercase tracking-[0.5em] font-black text-zinc-700 mt-1">Harshit Mishra</span>
+          </div>
+
+          <div className="flex items-center gap-10">
+            <a href="https://github.com/harshit-001-it" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-accent transition-all transform hover:scale-125">
+              <FaGithub size={22} />
+            </a>
+            <a href="https://www.linkedin.com/in/harshit-mishra-51275b219/" target="_blank" rel="noopener noreferrer" className="text-zinc-600 hover:text-accent transition-all transform hover:scale-125">
+              <FaLinkedin size={22} />
+            </a>
+          </div>
         </div>
       </footer>
     </section>

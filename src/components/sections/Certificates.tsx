@@ -14,19 +14,23 @@ const certificates = [
 
 export default function Certificates() {
   return (
-    <section className="py-24 px-6 md:px-24 bg-zinc-950">
+    <section className="w-full text-center">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
+        className="max-w-[1400px] mx-auto flex flex-col items-center mb-48 md:mb-60 gap-16"
       >
-        <h2 className="text-3xl md:text-5xl font-bold mb-16 tracking-tight flex items-center gap-4">
-          <Award className="text-zinc-500" size={40} />
-          Certifications
-        </h2>
+        <div className="flex flex-col items-center gap-10">
+          <Award className="text-accent mb-4" size={80} />
+          <h2 className="text-5xl md:text-8xl font-bold tracking-tighter uppercase italic">Certifications</h2>
+          <p className="text-zinc-500 text-lg tracking-[0.4em] uppercase font-black opacity-30">
+            Professional Credentials & Achievements
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-16 w-full mt-24">
           {certificates.map((cert, index) => (
             <motion.a
               key={cert.name}
@@ -36,15 +40,15 @@ export default function Certificates() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -5, borderColor: "#555" }}
-              className="flex items-center gap-4 p-6 bg-zinc-900 border border-zinc-800 rounded-xl transition-all"
+              whileHover={{ y: -12, scale: 1.02, borderColor: "#444", backgroundColor: "rgba(39, 39, 42, 0.3)" }}
+              className="flex flex-col items-center text-center gap-10 p-12 bg-zinc-900/10 backdrop-blur-3xl border border-zinc-800/20 rounded-[3rem] transition-all duration-700 group shadow-2xl"
             >
-              <div className="p-3 bg-zinc-800 rounded-lg text-zinc-400 group-hover:text-white transition-colors">
-                <FileText size={20} />
+              <div className="p-8 bg-zinc-800/20 rounded-[2rem] text-zinc-600 group-hover:text-accent transition-all duration-700 shadow-inner">
+                <FileText size={40} />
               </div>
-              <div>
-                <h3 className="text-sm font-medium text-white line-clamp-1">{cert.name}</h3>
-                <p className="text-xs text-zinc-500">{cert.provider}</p>
+              <div className="flex flex-col items-center gap-6">
+                <h3 className="text-2xl font-bold text-white mb-2 leading-tight max-w-[300px]">{cert.name}</h3>
+                <p className="text-[11px] uppercase tracking-[0.6em] text-zinc-700 font-black">{cert.provider}</p>
               </div>
             </motion.a>
           ))}

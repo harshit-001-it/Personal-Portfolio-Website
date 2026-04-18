@@ -27,8 +27,8 @@ export default function IntroOverlay() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
-        <p className="text-zinc-500 uppercase tracking-[0.5em] text-sm mb-4">Portfolio of</p>
-        <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-zinc-500">
+        <p className="text-accent uppercase tracking-[1em] text-[10px] md:text-xs mb-6 font-bold">Portfolio of</p>
+        <h1 className="text-7xl md:text-9xl font-bold tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-accent/50 leading-none">
           Harshit Mishra
         </h1>
       </motion.div>
