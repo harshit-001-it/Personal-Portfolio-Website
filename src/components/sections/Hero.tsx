@@ -53,7 +53,7 @@ export default function Hero() {
             subLabel="Professional Network"
           />
           <HeroButton
-            href="/Resume/Harshit Mishra Resume.pdf"
+            href="/Harshit Mishra Resume.pdf"
             icon={<Download size={24} />}
             label="View Resume"
             subLabel="Full Qualifications"
