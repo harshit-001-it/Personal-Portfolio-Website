@@ -1,4 +1,9 @@
+"use client";
+
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { Send, MapPin, Mail, Phone } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 export default function Contact() {
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
