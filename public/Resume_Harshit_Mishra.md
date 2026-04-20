@@ -1,6 +1,6 @@
 # HARSHIT MISHRA
 **AI Engineer | Machine Learning | Computer Vision**
-[LinkedIn](https://www.linkedin.com/in/harshit-mishra-51275b219/) | [GitHub](https://github.com/harshit-001-it) | [Location: India]
+[LinkedIn](https://www.linkedin.com/in/harshit-mishra-51275b219/) | [GitHub](https://github.com/harshit-001-it) | [Portfolio](https://harshit-001-it.github.io/Personal-Portfolio-Website/) | [Location: India]
 
 ---
 
