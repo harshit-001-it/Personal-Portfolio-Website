@@ -1,10 +1,34 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Send, MapPin, Mail, Phone } from "lucide-react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Contact() {
+  const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setState("sending");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/harshitmishra1208@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setState("success");
+        form.reset();
+      } else {
+        setState("error");
+      }
+    } catch (error) {
+      setState("error");
+    }
+  };
+
   return (
     <section className="bg-transparent w-full text-center overflow-hidden">
       <div className="flex justify-center w-full mb-32 md:mb-48">
@@ -22,24 +46,43 @@ export default function Contact() {
             </p>
           </div>
 
-          <form className="space-y-12 text-left w-full max-w-5xl mx-auto" onSubmit={(e) => e.preventDefault()}>
+          <form 
+            className="space-y-12 text-left w-full max-w-5xl mx-auto" 
+            onSubmit={handleSubmit}
+          >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-              <Input label="Name" type="text" placeholder="Your Name" />
-              <Input label="Email" type="email" placeholder="email@example.com" />
+              <Input label="Name" name="name" type="text" placeholder="Your Name" required />
+              <Input label="Email" name="email" type="email" placeholder="email@example.com" required />
             </div>
 
             <div className="flex flex-col gap-4">
               <label className="text-[11px] uppercase tracking-[0.4em] font-black text-zinc-700">Message</label>
               <textarea
+                name="message"
                 rows={7}
+                required
                 className="bg-zinc-800/10 border border-zinc-800/50 rounded-3xl p-8 text-white text-lg focus:outline-none focus:border-accent transition-all resize-none shadow-2xl"
                 placeholder="Tell me about your project..."
               />
             </div>
-            <button className="button-3d glow-hover w-full flex items-center justify-center gap-4 py-8 bg-white text-black rounded-3xl font-black transition-all uppercase tracking-[0.4em] text-[11px]">
-              <Send size={22} />
-              Dispatch Message
+            <button 
+              disabled={state === "sending"}
+              className={`button-3d glow-hover w-full flex items-center justify-center gap-4 py-8 rounded-3xl font-black transition-all uppercase tracking-[0.4em] text-[11px] ${
+                state === "success" ? "bg-green-500 text-white" : state === "error" ? "bg-red-500 text-white" : "bg-white text-black"
+              }`}
+            >
+              <Send size={22} className={state === "sending" ? "animate-pulse" : ""} />
+              {state === "idle" && "Dispatch Message"}
+              {state === "sending" && "Dispatching..."}
+              {state === "success" && "Message Delivered"}
+              {state === "error" && "Error - Try Again"}
             </button>
+            
+            {state === "success" && (
+              <p className="text-center text-accent text-xs tracking-widest uppercase mt-6 animate-pulse">
+                I'll get back to you as soon as possible!
+              </p>
+            )}
           </form>
         </motion.div>
       </div>
