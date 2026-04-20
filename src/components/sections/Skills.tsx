@@ -22,32 +22,34 @@ interface Category {
 
 const skillCategories: Category[] = [
   {
-    title: "Core Technologies",
+    title: "AI Engineering",
     skills: [
-      { name: "Python", resources: { video: "https://youtu.be/_uQrJ0TkZlc", docs: "https://docs.python.org/3/", roadmap: "https://roadmap.sh/python" } },
-      { name: "C++", resources: { video: "https://youtu.be/vLnPwxZdW4Y", docs: "https://en.cppreference.com/w/", roadmap: "https://roadmap.sh/cpp" } },
-      { name: "Java", resources: { video: "https://youtu.be/eIrMbAQSU34", docs: "https://docs.oracle.com/en/java/", roadmap: "https://roadmap.sh/java" } },
-      { name: "Web Dev", resources: { video: "https://youtu.be/zJSY8tJY_67", docs: "https://developer.mozilla.org/", roadmap: "https://roadmap.sh/frontend" } },
-      { name: "MySQL", resources: { video: "https://youtu.be/7S_tz1z_5bA", docs: "https://dev.mysql.com/doc/", roadmap: "https://roadmap.sh/postgresql-dba" } },
-      { name: "Linux", resources: { video: "https://youtu.be/wBp0Rb-ZJak", docs: "https://www.kernel.org/doc/html/latest/", roadmap: "https://roadmap.sh/linux" } }
+      { name: "ML (Machine Learning)", resources: { video: "https://youtu.be/GwIo3gDZCVQ", docs: "https://scikit-learn.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "Deep Learning (CNN)", resources: { video: "https://youtu.be/aircAruvnKk", docs: "https://pytorch.org/docs/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "NLP (Text Analysis)", resources: { video: "https://youtu.be/hE7rG6oG9xM", docs: "https://www.nltk.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "OpenCV", resources: { video: "https://youtu.be/kdLM6A_Ab3U", docs: "https://docs.opencv.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "RAG & LLM", resources: { video: "https://youtu.be/LhnCsygAvzY", docs: "https://python.langchain.com/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "Prompt Engineering", resources: { video: "https://youtu.be/ad79nyu21-I", docs: "https://openai.com/research", roadmap: "https://roadmap.sh/ai-data-scientist" } }
     ]
   },
   {
-    title: "Intelligence",
+    title: "Core Stack",
     skills: [
-      { name: "ML (Machine Learning)", resources: { video: "https://youtu.be/GwIo3gDZCVQ", docs: "https://scikit-learn.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
-      { name: "AI (Artificial Intelligence)", resources: { video: "https://youtu.be/ad79nyu21-I", docs: "https://openai.com/research", roadmap: "https://roadmap.sh/ai-data-scientist" } },
-      { name: "Deep Learning", resources: { video: "https://youtu.be/aircAruvnKk", docs: "https://pytorch.org/docs/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
-      { name: "Neural Networks", resources: { video: "https://youtu.be/hfK_dvC-avg", docs: "https://www.tensorflow.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } }
+      { name: "Python", resources: { video: "https://youtu.be/_uQrJ0TkZlc", docs: "https://docs.python.org/3/", roadmap: "https://roadmap.sh/python" } },
+      { name: "C++ / Java", resources: { video: "https://youtu.be/vLnPwxZdW4Y", docs: "https://en.cppreference.com/w/", roadmap: "https://roadmap.sh/cpp" } },
+      { name: "Linux (OS)", resources: { video: "https://youtu.be/wBp0Rb-ZJak", docs: "https://www.kernel.org/doc/html/latest/", roadmap: "https://roadmap.sh/linux" } },
+      { name: "MySQL / JSON", resources: { video: "https://youtu.be/7S_tz1z_5bA", docs: "https://dev.mysql.com/doc/", roadmap: "https://roadmap.sh/postgresql-dba" } },
+      { name: "TensorFlow", resources: { video: "https://youtu.be/hfK_dvC-avg", docs: "https://www.tensorflow.org/", roadmap: "https://roadmap.sh/ai-data-scientist" } },
+      { name: "Web Dev", resources: { video: "https://youtu.be/zJSY8tJY_67", docs: "https://developer.mozilla.org/", roadmap: "https://roadmap.sh/frontend" } }
     ]
   },
   {
     title: "Soft Skills",
     skills: [
-      { name: "Leadership", resources: { video: "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action", docs: "https://hbr.org/topic/leadership", roadmap: "https://online.hbs.edu/blog/post/leadership-skills" } },
       { name: "Problem Solving", resources: { video: "https://youtu.be/uCh699Onc4A", docs: "https://www.mindtools.com/pages/article/newTMC_00.htm", roadmap: "https://www.brilliant.org" } },
+      { name: "Leadership", resources: { video: "https://www.ted.com/talks/simon_sinek_how_great_leaders_inspire_action", docs: "https://hbr.org/topic/leadership", roadmap: "https://online.hbs.edu/blog/post/leadership-skills" } },
       { name: "Teamwork", resources: { video: "https://youtu.be/hE7rG6oG9xM", docs: "https://asana.com/resources/collaboration-skills", roadmap: "https://www.atlassian.com/team-playbook" } },
-      { name: "Critical Thinking", resources: { video: "https://youtu.be/HnJ1bqXUnIM", docs: "https://plato.stanford.edu/entries/critical-thinking/", roadmap: "https://www.skillsyouneed.com/learn/critical-thinking.html" } }
+      { name: "Technical Writing", resources: { video: "https://youtu.be/HnJ1bqXUnIM", docs: "https://developers.google.com/tech-writing", roadmap: "https://www.skillsyouneed.com/learn/critical-thinking.html" } }
     ]
   }
 ];

@@ -8,7 +8,7 @@ const education = [
     degree: "B.Tech in Information Technology",
     institution: "IIMT College of Engineering",
     period: "2022 - 2026 (Expected)",
-    details: "Focusing on Software Engineering, Data Structures, AI, and Cloud Computing."
+    details: "Specializing in software intelligence, scalable architectures, and advanced data modeling. Proactively applying academic theory to real-world AI engineering projects."
   },
   {
     degree: "Senior Secondary Education (XII)",

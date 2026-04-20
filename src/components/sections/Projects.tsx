@@ -13,33 +13,43 @@ export default function Projects() {
   const fallbackProjects: GitHubRepo[] = [
     {
       id: 1,
-      name: "AI Emotion Recognizer",
-      description: "Real-time emotion detection system using deep learning and computer vision to bridge human-AI interaction.",
-      html_url: "https://github.com/harshit-mishra",
+      name: "Unified Emotion Recognition",
+      description: "High-performance real-time sentiment analysis engine unifying FER 2013, AffectNet, CK+, and RAF-DB datasets using a 1024-node CNN architecture.",
+      html_url: "https://github.com/harshit-001-it",
       homepage: "",
-      stargazers_count: 12,
+      stargazers_count: 15,
       language: "Python",
-      topics: ["Deep Learning", "OpenCV"]
+      topics: ["CNN", "OpenCV", "Deep Learning"]
     },
     {
       id: 2,
-      name: "Intelligent Portfolio",
-      description: "High-end 3D portfolio website with advanced animations, Three.js, and dynamic GitHub integration.",
-      html_url: "https://github.com/harshit-mishra",
+      name: "AI Text Analyzer CLI",
+      description: "Production-grade CLI tool for NLP-based text summarization and classification with structured JSON outputs and latency evaluation.",
+      html_url: "https://github.com/harshit-001-it",
       homepage: "",
-      stargazers_count: 8,
-      language: "Next.js",
-      topics: ["Three.js", "Framer Motion"]
+      stargazers_count: 5,
+      language: "Python",
+      topics: ["NLP", "CLI", "JSON Schema"]
     },
     {
       id: 3,
-      name: "Data Analytics Dashboard",
-      description: "Comprehensive data visualization platform for complex datasets using modern analytics tools.",
-      html_url: "https://github.com/harshit-mishra",
+      name: "Fake News Detection",
+      description: "Advanced NLP classifier identifying misinformation through linguistic patterns and TF-IDF vectorization with high precision.",
+      html_url: "https://github.com/harshit-001-it",
       homepage: "",
-      stargazers_count: 5,
-      language: "Power BI",
-      topics: ["Data Viz", "Analytics"]
+      stargazers_count: 7,
+      language: "Python",
+      topics: ["NLP", "ML", "Scikit-Learn"]
+    },
+    {
+      id: 4,
+      name: "Intelligent Portfolio",
+      description: "Premium 3D cinematic portfolio built with Next.js, Three.js, and Framer Motion featuring real-time GitHub integration.",
+      html_url: "https://github.com/harshit-001-it",
+      homepage: "",
+      stargazers_count: 10,
+      language: "Next.js",
+      topics: ["Three.js", "3D Animation"]
     }
   ];
 

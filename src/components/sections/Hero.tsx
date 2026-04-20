@@ -19,7 +19,7 @@ export default function Hero() {
           className="flex-1"
         >
           <h1 className="text-sm md:text-base font-bold text-accent tracking-[0.4em] mb-4 uppercase">
-            IT Engineer & ML Specialist
+            AI Engineer | Machine Learning | Computer Vision
           </h1>
           <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 tracking-tighter leading-none">
             Harshit <br />
@@ -28,7 +28,7 @@ export default function Hero() {
             </span>
           </h2>
           <p className="text-lg md:text-2xl text-zinc-400 leading-relaxed max-w-xl mx-auto md:mx-0">
-            Building AI-driven solutions that bridge the gap between complex data and human impact.
+            Crafting intelligent systems where Computer Vision and NLP meet real-world impact.
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function Hero() {
             subLabel="Professional Network"
           />
           <HeroButton
-            href="/Harshit Mishra Resume.pdf"
+            href="/Resume_Harshit_Mishra.md"
             icon={<Download size={24} />}
             label="View Resume"
             subLabel="Full Qualifications"
