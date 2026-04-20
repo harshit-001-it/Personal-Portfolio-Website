@@ -2,8 +2,12 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, MapPin, Mail, Phone } from "lucide-react";
+import { Send } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  label: string;
+}
 
 export default function Contact() {
   const [state, setState] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -29,7 +33,7 @@ export default function Contact() {
       } else {
         setState("error");
       }
-    } catch (error) {
+    } catch {
       setState("error");
     }
   };
@@ -47,7 +51,7 @@ export default function Contact() {
           <div className="mb-48 md:mb-60 flex flex-col items-center gap-12">
             <h2 className="text-5xl md:text-8xl font-bold mb-4 tracking-tighter uppercase italic">Get in Touch</h2>
             <p className="text-zinc-500 text-2xl mx-auto max-w-3xl font-medium tracking-tight">
-              Have a project in mind or just want to say hi? <br className="hidden md:block" /> I'm always open to new opportunities.
+              Have a project in mind or just want to say hi? <br className="hidden md:block" /> I&apos;m always open to new opportunities.
             </p>
           </div>
 
@@ -85,7 +89,7 @@ export default function Contact() {
             
             {state === "success" && (
               <p className="text-center text-accent text-xs tracking-widest uppercase mt-6 animate-pulse">
-                I'll get back to you as soon as possible!
+                I&apos;ll get back to you as soon as possible!
               </p>
             )}
           </form>
@@ -113,21 +117,8 @@ export default function Contact() {
   );
 }
 
-function ContactItem({ icon, label, value }: { icon: any, label: string, value: string }) {
-  return (
-    <div className="flex items-center gap-4">
-      <div className="p-3 bg-zinc-900 border border-zinc-800 rounded-xl text-zinc-400">
-        {icon}
-      </div>
-      <div>
-        <p className="text-xs text-zinc-500 uppercase tracking-widest font-bold">{label}</p>
-        <p className="text-white font-medium">{value}</p>
-      </div>
-    </div>
-  );
-}
 
-function Input({ label, ...props }: any) {
+function Input({ label, ...props }: InputProps) {
   return (
     <div className="flex flex-col gap-2">
       <label className="text-xs uppercase tracking-widest text-zinc-500 font-bold">{label}</label>

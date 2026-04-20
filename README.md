@@ -41,7 +41,7 @@ A high-performance, cinematic 3D portfolio showcasing advanced AI/ML projects, b
 ```
 
 ## 📄 Resume
-The latest AI/ML optimized resume is available in [public/Resume_Harshit_Mishra.md](public/Resume_Harshit_Mishra.md).
+The latest AI/ML optimized resume is available in [public/Resume_Harshit_Mishra.pdf](public/Resume_Harshit_Mishra.pdf).
 
 ---
 *Built with ❤️ by Harshit Mishra*

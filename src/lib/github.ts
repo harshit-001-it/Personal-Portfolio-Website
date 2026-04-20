@@ -7,6 +7,7 @@ export interface GitHubRepo {
   stargazers_count: number;
   language: string;
   topics: string[];
+  fork: boolean;
 }
 
 export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[]> {
@@ -23,8 +24,8 @@ export async function fetchGitHubRepos(username: string): Promise<GitHubRepo[]> 
     
     // Sort by stars and filter out forks
     return data
-      .filter((repo: any) => !repo.fork)
-      .sort((a: any, b: any) => b.stargazers_count - a.stargazers_count);
+      .filter((repo: GitHubRepo) => !repo.fork)
+      .sort((a: GitHubRepo, b: GitHubRepo) => b.stargazers_count - a.stargazers_count);
   } catch (error) {
     console.error("GitHub Fetch Error:", error);
     return [];

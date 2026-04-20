@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 
 export default function IntroOverlay() {
@@ -53,8 +53,8 @@ export default function IntroOverlay() {
         transition={{ delay: 1.2, duration: 1 }}
         className="max-w-xl text-zinc-400 text-lg leading-relaxed mb-12"
       >
-        "I am Harshit Mishra, currently pursuing B.Tech in Information Technology from IIMT College. 
-        I am passionate about building intelligent systems, scalable web applications, and solving real-world problems using AI and modern technologies."
+        &quot;I am Harshit Mishra, currently pursuing B.Tech in Information Technology from IIMT College. 
+        I am passionate about building intelligent systems, scalable web applications, and solving real-world problems using AI and modern technologies.&quot;
       </motion.p>
 
       <motion.div

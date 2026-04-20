@@ -65,8 +65,11 @@ function Particles({ count }: { count: number }) {
   const particles = useMemo(() => {
     const temp = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
+      // eslint-disable-next-line react-hooks/purity
       temp[i * 3] = (Math.random() - 0.5) * 40;
+      // eslint-disable-next-line react-hooks/purity
       temp[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      // eslint-disable-next-line react-hooks/purity
       temp[i * 3 + 2] = (Math.random() - 0.7) * 30;
     }
     return temp;

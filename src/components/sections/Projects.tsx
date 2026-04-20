@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink, Star } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { fetchGitHubRepos, GitHubRepo } from "@/lib/github";
 
 export default function Projects() {
   const [repos, setRepos] = useState<GitHubRepo[]>([]);
   const [loading, setLoading] = useState(true);
 
-  const fallbackProjects: GitHubRepo[] = [
+  const fallbackProjects: GitHubRepo[] = useMemo(() => [
     {
       id: 1,
       name: "Unified Emotion Recognition",
@@ -19,7 +19,8 @@ export default function Projects() {
       homepage: "",
       stargazers_count: 15,
       language: "Python",
-      topics: ["CNN", "OpenCV", "Deep Learning"]
+      topics: ["CNN", "OpenCV", "Deep Learning"],
+      fork: false
     },
     {
       id: 2,
@@ -29,7 +30,8 @@ export default function Projects() {
       homepage: "",
       stargazers_count: 5,
       language: "Python",
-      topics: ["NLP", "CLI", "JSON Schema"]
+      topics: ["NLP", "CLI", "JSON Schema"],
+      fork: false
     },
     {
       id: 3,
@@ -39,7 +41,8 @@ export default function Projects() {
       homepage: "",
       stargazers_count: 7,
       language: "Python",
-      topics: ["NLP", "ML", "Scikit-Learn"]
+      topics: ["NLP", "ML", "Scikit-Learn"],
+      fork: false
     },
     {
       id: 4,
@@ -49,9 +52,10 @@ export default function Projects() {
       homepage: "",
       stargazers_count: 10,
       language: "Next.js",
-      topics: ["Three.js", "3D Animation"]
+      topics: ["Three.js", "3D Animation"],
+      fork: false
     }
-  ];
+  ], []);
 
   useEffect(() => {
     async function getRepos() {
@@ -62,14 +66,14 @@ export default function Projects() {
         } else {
           setRepos(fallbackProjects);
         }
-      } catch (error) {
+      } catch {
         setRepos(fallbackProjects);
       } finally {
         setLoading(false);
       }
     }
     getRepos();
-  }, []);
+  }, [fallbackProjects]);
 
   return (
     <section id="projects" className="w-full bg-transparent relative overflow-hidden text-center">
